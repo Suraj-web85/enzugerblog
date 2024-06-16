@@ -14,6 +14,8 @@ import DeliveryAndPayment from "./pages/DefaultPages/DeliveryAndPayment";
 import FAQ from "./pages/DefaultPages/FAQ";
 import WhyEnzuger from "./pages/DefaultPages/WhyEnzuger";
 import Cart from "./pages/DefaultPages/Cart";
+import BlogList from "./pages/AdminPages/Blog/BlogList";
+import AddBlog from "./pages/AdminPages/Blog/AddBlog";
 
 import { CartProvider } from "./context/CartContext";
 
@@ -76,6 +78,8 @@ function App() {
             </Route>
             <Route path="/admin" element={<AdminLayout />}>
               <Route path="dashboard" element={<Dashboard />} />
+              <Route path="blogs" element={<BlogList />} />
+              <Route path="blogs/add-blog" element={<AddBlog />} />
               <Route path="products" element={<AdminProduct />} />
               <Route path="products/add-new" element={<AddProduct />} />
               <Route path="orders" element={<AdminOrders />} />
