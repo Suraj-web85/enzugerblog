@@ -1,0 +1,92 @@
+.container-1 {
+  justify-content: space-between;
+  background-color: #003690;
+  background: radial-gradient(#4f59c1, #003690);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.back {
+  box-shadow: rgba(248, 244, 241, 0.2) 0px 7px 29px 0px;
+}
+.col-1 {
+  flex-basis: 45%;
+  color: #fff;
+}
+.back {
+  background-color: #fff;
+  border-radius: 30px;
+}
+img {
+  width: 90%;
+}
+.h1 {
+  font-size: 8.75rem;
+  line-height: 0;
+  font-weight: 600;
+}
+.h2 {
+  font-size: 6.25rem;
+  font-weight: 600;
+  position: relative;
+}
+.tx-para {
+  text-align: left;
+}
+.bar {
+  padding: 1rem 0rem 0rem 0rem;
+}
+
+.h2::after {
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 25%;
+  background-color: #f58020;
+  inset: auto auto 0 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .h2 {
+    font-size: 4.45rem;
+  }
+  .h1 {
+    font-size: 6.75rem;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .container-1 {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .h2 {
+    font-size: 3.75rem;
+  }
+  .h1 {
+    font-size: 5.75rem;
+  }
+  img {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container-1 {
+    padding: 4rem 1.4rem;
+  }
+  .col-1 p {
+    font-size: 0.9rem;
+  }
+  .h2 {
+    font-size: 2.75rem;
+  }
+  .h1 {
+    font-size: 3.75rem;
+  }
+  .h2::after {
+    height: 8px;
+  }
+}

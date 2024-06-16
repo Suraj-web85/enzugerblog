@@ -1,0 +1,128 @@
+.cart-con {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+.cart-tb {
+  margin: 10px;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.cart-item,
+.cart-tb > thead {
+  border-bottom: 1px solid #e6e6e6;
+}
+.cart-tb th {
+  text-align: left;
+  padding: 20px 14px;
+  text-transform: uppercase;
+}
+.cart-item {
+  font-weight: bold;
+}
+.cart-item img {
+  width: 100px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.ca-i-delbtn {
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  height: 30px;
+  font-weight: bold;
+  width: 30px;
+  cursor: pointer;
+}
+.cart-item td {
+  padding: 10px 14px;
+}
+.cart-item td:nth-child(4) {
+  text-wrap: nowrap;
+}
+.cart-item td:nth-child(5) input {
+  width: 50px;
+  padding: 5px 5px;
+  border-radius: 5px;
+  outline: none;
+  border: 1.4px solid #ccc;
+  font-weight: bold;
+  text-align: center;
+}
+.cart-btn-con {
+  padding: 20px 0;
+}
+.cart-btn-con input {
+  padding: 12px;
+  border: 1.4px solid #cccccc;
+  border-radius: 4px;
+  outline: none;
+  /* margin-left: 10px; */
+}
+.cart-btn-con > .sflex {
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 10px;
+}
+.coupon-input {
+  margin-right: 10px;
+}
+.er-p {
+  background-color: red;
+  color: #ffffff;
+  margin: 10px 0;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+.cart-btn-con .com-btn {
+  border-radius: 5px;
+}
+
+.cart-sec:last-child {
+  border: 5px solid #efefef;
+  padding: 20px 5%;
+  height: min-content;
+  margin: 5%;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+}
+.cart-sec:last-child > h3 {
+  border-bottom: 4px solid #efefef;
+  /* margin: 20px 0; */
+  padding-bottom: 10px;
+}
+.cart-sec:last-child p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cart-sec:last-child > div{
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 2px solid #efefef;
+  padding: 20px 0;
+  border-bottom: 2px solid #efefef;
+}
+.cart-sec:last-child > div > .sflex {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.cart-sec:last-child label{
+  display: flex;
+  gap: 20px;
+}
+.cart-sec:last-child button {
+  padding: 12px 10px;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 20px;
+  color: #ffffff;
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 2,
+    "img": "beverages.webp",
+    "title": "Beverages"
+  },
+  {
+    "id": 4,
+    "img": "rescale.webp",
+    "title": "Juices"
+  },
+  {
+    "id": 3,
+    "img": "milk.webp",
+    "title": "Milk preparation"
+  },
+  {
+    "id": 6,
+    "img": "treat.webp",
+    "title": "Treats"
+  },
+  {
+    "id": 5,
+    "img": "sweet.webp",
+    "title": "Indian Sweets"
+  },
+  {
+    "id": 1,
+    "img": "baking.webp",
+    "title": "Baking"
+  }
+]

@@ -1,0 +1,14 @@
+.main-container-8{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media screen and (max-width:768px){
+    .main-container-8 img{
+        width: 100%;
+    }
+}
+

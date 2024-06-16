@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  padding: 4.5rem 4.375rem;
+  color: #333;
+}
+
+.common_questions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.div_1{
+    color: black;
+}
+.div_2 h6{
+    font-size: 0.8rem;
+}
+
+.div_2 h4{
+    color: black;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.accordian_section {
+  width: 80%;
+  margin: auto;
+}
+
+.faq_questions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq_questions h2{
+    font-size: 1.3rem;
+}
+
+.faq_questions span {
+  font-size: 1.9rem;
+  font-weight: 600;
+}
+
+.faq_answers p {
+  font-size: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.accordian_items {
+  background-color: #fff;
+  margin-bottom: 1rem;
+  padding: 10px 20px;
+  border-bottom: 0.5px solid #999;
+}
+
+.faq_answers {
+  overflow: hidden;
+  max-height: 0;
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.faq_answers.show {
+  height: auto;
+  max-height: 9999px;
+  transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+}
+
+
+
+.load_more {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #234087;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .load_more:hover {
+    background-color: #f58020;
+  }
+  
+
+
+@media screen  and (max-width:768px){
+    .common_questions{
+        width: 100%;
+    }
+    .accordian_section{
+        width: 100%;
+    }
+    .faq_questions h2{
+        font-size: 1.1rem;
+    }
+    .faq_questions span{
+        font-size: 1.4rem;
+    }
+    .faq_answers p{
+        font-size: 1rem;
+    }
+
+    .div_1 h2{
+        font-size: 1.3rem;
+    }
+    .div_2 h4{
+       font-size: 1rem;
+    }
+}
+
+
+@media screen and (max-width:450px){
+   .wrapper{
+    padding: 4.5rem 1.4rem;
+
+   }
+
+   .common_questions{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+   }
+}

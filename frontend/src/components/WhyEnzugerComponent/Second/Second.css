@@ -1,0 +1,93 @@
+.container-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 4.5rem;
+  gap: 4rem;
+}
+.h3 {
+  color: #003690;
+  font-size: 3.125rem;
+  position: relative;
+}
+
+.content-box p {
+  font-size: 1.2rem;
+  color: #214391;
+}
+
+.h6 {
+  color: #003690;
+  font-size: 1.563rem;
+  line-height: 0.5;
+  font-weight: 400;
+}
+
+.h3::after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 45%;
+  background-color: #f58020;
+  bottom: 0;
+  left: 0;
+}
+
+.col-2 {
+  flex-basis: 30%;
+}
+
+.col-3 {
+  flex-basis: 70%;
+  background-color: #f5f9fc;
+  padding: 2.5rem;
+  border-radius: 1.25rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.container-2.flipped {
+  flex-direction: row-reverse;
+  padding-bottom: 4.5rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .container-2 {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  .container-2.flipped {
+    flex-direction: column;
+  }
+  .h6 {
+    font-size: 1.3rem;
+  }
+  .h3 {
+    font-size: 2.7rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .h6 {
+    font-size: 1rem;
+  }
+  .h3 {
+    font-size: 2.3rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container-2 {
+    padding: 4rem 1.4rem;
+  }
+
+  .h6 {
+    font-size: 1rem;
+  }
+  .h3 {
+    font-size: 2rem;
+  }
+  .content-box p {
+    font-size: 0.9rem;
+  }
+}

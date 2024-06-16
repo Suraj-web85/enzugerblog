@@ -1,0 +1,149 @@
+/* Timeline.css */
+
+.timeline {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  text-align: right;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background-color: #ccc;
+  left: 50.8%;
+  top: 0;
+}
+.timeline-item:nth-child(odd) {
+  text-align: left;
+  flex-direction: row-reverse;
+}
+.timeline-item:nth-child(odd) .timeline-content {
+  padding-left: 60px;
+}
+.timeline-item:nth-child(even) .timeline-content {
+  padding-right: 60px;
+}
+.timeline-item:nth-child(odd) .timeline-dot p {
+  position: absolute;
+  top: -14px;
+  left: 20px;
+}
+.timeline-item:nth-child(even) .timeline-dot p {
+  position: absolute;
+  top: -14px;
+  right: 20px;
+}
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background-color: var(--p-color);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  z-index: 10;
+}
+.empty-space,
+.timeline-content {
+  flex: 1;
+  flex-basis: 50%;
+}
+.timeline-content {
+  position: relative;
+}
+.timeline-year {
+  font-weight: 500;
+}
+.timeline-month {
+  font-weight: bold;
+  text-align: unset;
+}
+.timeline-description {
+  color: gray;
+  font-weight: 500;
+  font-style: italic;
+}
+
+@media (max-width: 1024px) {
+  .timeline-item::before {
+    left: 51.1%;
+  }
+}
+@media (max-width: 768px) {
+  .timeline-item::before {
+    left: 50.9%;
+  }
+}
+@media (max-width: 576px) {
+  .timeline {
+    margin: 0 20px;
+  }
+  .timeline-item::before {
+    left: 1%;
+  }
+  .timeline-item:nth-child(even),
+  .timeline-item:nth-child(odd) {
+    text-align: left;
+    flex-direction: row;
+  }
+  .timeline-content {
+    padding: 20px 20px 0px 20px !important;
+  }
+  .timeline-item {
+    /* margin-bottom: 20px !important; */
+  }
+  .timeline-dot {
+    left: 0;
+  }
+  .timeline-dot p {
+    left: 20px !important;
+  }
+  .empty-space{
+    display: none;
+  }
+}
+/* 
+@media (max-width: 600px) {
+  .timeline {
+    padding: 10px;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  .timeline-dot {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .timeline-content {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .timeline-year {
+    margin-bottom: 5px;
+  }
+
+  .timeline-month {
+    margin-bottom: 5px;
+  }
+
+  .timeline-description {
+    margin-bottom: 10px;
+  }
+} */

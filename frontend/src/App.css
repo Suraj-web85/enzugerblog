@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --p-color: #003690;
+  --s-color: #234087;
+
+  --bg-color: #f5f9fc;
+  --ss-color: #f48120;
+}
+
+html,
+body {
+  width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins";
+}
+
+.scroll-baren {
+  --sb-track-color: #d9d9d9;
+  --sb-thumb-color: #003690;
+  --sb-size: 8px;
+  /* overflow-y: scroll; */
+}
+.scroll-baren::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+.scroll-baren::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 2px;
+}
+.scroll-baren::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 0px;
+}
+@supports not selector(::-webkit-scrollbar) {
+  .scroll-baren {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+.sflex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main {
+  max-width: 1440px;
+  margin: 0 auto;
+  margin-top: calc(72px + 32px);
+}
+@media (max-width: 1024px) {
+  .main {
+    margin-top: 72px;
+  }
+}
+.con {
+  padding: 1rem 5%;
+}
+
+.mh {
+  font-size: clamp(1.5rem, 1.286rem + 0.571vw, 1.8rem);
+}
+.sh {
+  font-size: clamp(1.2rem, 0.986rem + 0.571vw, 1.5rem);
+}
+.mpara {
+  text-align: center;
+  font-size: clamp(0.9rem, 0.686rem + 0.571vw, 1.2rem);
+}
+.para {
+  text-decoration: none;
+  font-size: clamp(0.8rem, 0.586rem + 0.571vw, 1.01rem);
+}
+.sspara {
+  font-size: clamp(0.7rem, 0.613rem + 0.242vw, 1rem);
+}
+
+.com-btn {
+  text-decoration: none;
+  color: white;
+  background-color: var(--p-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+  outline: none;
+  cursor: pointer;
+}
+.com-btn:hover {
+  background-color: var(--ss-color);
+  /* color: var(---color); */
+  scale: 1.05;
+}
+
+.m-tb {
+  margin: 20px 0;
+}

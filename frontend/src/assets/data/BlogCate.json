@@ -1,0 +1,31 @@
+[
+  {
+    "category":"immunity",
+    "blogs":[
+      {
+        "id": 1,
+        "img": "blogBannerOne.webp",
+        "lastTime": 6,
+        "Date": "Aug 15, 2020",
+        "title": "Why Immunity Gets Affected Differently Across Demographics?",
+        "content": "Your immune system is a network of cells, tissues and organs that defend your body, by generating antibodies against foreign particles and invaders, like bacterias and parasites that are most likely to get you sick",
+        "user": "Suraj Yadav"
+      }
+    ]
+  },
+  {"category":"nutrition",
+  "blogs":[
+    
+      {
+        "id": 2,
+        "img": "BlogNutri.jpg",
+        "lastTime": 5,
+        "Date": "Nov 29, 2025",
+        "title": "Why Nutrition is Important?",
+        "content": "Nutrition is essential for growth and development, health and wellbeing. Eating a healthy diet contributes to preventing future illness and improving quality and length of life.",
+        "user": "Shubham Maurya"
+      }
+    
+  ]
+}
+]

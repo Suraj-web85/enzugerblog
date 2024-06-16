@@ -1,0 +1,92 @@
+.mn-cn-blog-sngle-pg .bnner-too-img {
+  width: 85vw;
+  /* height: 700px; */
+  height: clamp(14.0625rem, 1.3393rem + 56.5476vw, 30.75rem);
+}
+.mn-cn-blog-sngle-pg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mn-cn-blog-sngle-pg .head-sg-blg {
+  /* font-size:3.4rem; */
+  font-size: clamp(1.25rem, 0.3259rem + 4.1071vw, 3.40625rem);
+  /* line-height: 75px; */
+  line-height: clamp(1.5625rem, 0.2232rem + 5.9524vw, 4.6875rem);
+  padding-bottom: 0;
+  font-weight: 600;
+  /* margin: 80px 0 40px; */
+  margin: clamp(1.2rem, -0.2553rem + 6.4681vw, 4rem)
+    clamp(1.2rem, 0.7021rem + 2.2128vw, 1.5rem);
+  text-align: center;
+}
+.sb-dv-sle-blg-pg {
+  max-width: 1000px;
+  margin-bottom: 2rem;
+}
+.mn-cntr-dvbgpg {
+  padding: 0 5%;
+}
+.use-up-sc-sbgl {
+  /* padding-top: 30px; */
+  padding-top: clamp(0.625rem, 0.0893rem + 2.381vw, 1.875rem);
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+.use-nm {
+  height: max-content !important;
+  /* font-size: 1.25rem; */
+  font-size: clamp(0.9375rem, 0.8036rem + 0.5952vw, 1.25rem);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #393939 !important;
+  font-weight: 600;
+}
+.dot {
+  font-size: 1rem;
+}
+.date-dur-tion {
+  /* font-size: 20px; */
+  font-size: clamp(0.9375rem, 0.7617rem + 0.7813vw, 1.25rem);
+
+  line-height: 100%;
+  display: flex;
+
+  align-items: start;
+  color: #393939 !important;
+}
+.user-img-dv {
+  height: clamp(2.6rem, 0.5938rem + 6.25vw, 4.5rem) !important;
+  width: clamp(2.6rem, 0.5938rem + 6.25vw, 4.5rem) !important;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-img-dv > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.cont-ent-sngle-pg-blg-unds {
+  /* padding-top: 3rem; */
+  padding-top: clamp(1.25rem, 0.2656rem + 4.375vw, 3rem);
+}
+.cont-ent-sngle-pg-blg-unds p {
+  text-align: justify;
+  text-justify: inter-word;
+  /* line-height: 45px; */
+  line-height: clamp(18px, 0.3516rem + 3.4375vw, 2.5rem);
+  text-wrap: wrap;
+  /* font-size: 1.3rem; */
+  font-size: clamp(1rem, 0.8312rem + 0.75vw, 1.3rem);
+}
+@media screen and (max-width: 700px) {
+  .mn-cn-blog-sngle-pg .head-sg-blg {
+    text-align: left;
+    /* margin: 1.2rem 0; */
+  }
+  .use-up-sc-sbgl {
+    gap: 0.5rem;
+  }
+}

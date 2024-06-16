@@ -1,0 +1,18 @@
+.blg-tit-al-ofa > h2{
+  font-size: clamp(1.4rem, 0.4687rem + 3.25vw, 2.5rem);
+  line-height: 45px;
+  letter-spacing: .64px;
+  color: #221e38;
+  margin-top: clamp(1.3rem, 0.4687rem + 3.25vw, 2.5rem);
+  line-height: 1.1;
+  font-weight: 600;
+  margin-bottom: clamp(1.2rem, 0.4687rem + 3.25vw, 2.4rem);
+  text-transform: capitalize;
+
+}
+@media screen and (max-width:576px) {
+  .blg-tit-al-ofa > h2{
+    text-align: center;
+  }
+  
+}

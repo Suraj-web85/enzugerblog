@@ -1,0 +1,50 @@
+.lfsec {
+  flex-direction: column;
+  margin: 20px auto 80px auto;
+}
+
+.lfgrid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+.lfitem {
+  box-shadow: 1px 1px 10px #ddd;
+  width: 100%;
+  border-radius: 8px;
+  flex-direction: column;
+  padding: 20px 10px;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+.lfitem img {
+  width: 100px;
+  aspect-ratio: 1/1;
+}
+.lfitem p{
+    color: var(--p-color);
+    font-weight: bold;
+    margin: 10px;
+}
+.lfitem:hover{
+    box-shadow: 3px 3px 10px #bbb;
+}
+.lfitem:hover .com-btn{
+    background-color: var(--ss-color);
+}
+.en-exit-sym{
+  margin: 0px 8px;
+}
+
+@media (max-width: 768px) {
+    .lfgrid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width:576px) {
+    .lfitem img{
+        width: 75px;
+    }
+}

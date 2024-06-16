@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Gayatri Patel",
+    "review": "When my 11-year-old daughter was diagnosed with diabetes, after complaining of dizziness and rapid weight gain, as a mother I felt very helpless. Doctors advised controlling food and stopping the consumption of sugars, which heartbreaking for a kid.",
+    "rating": 1.5 
+  },
+  {
+    "id": 2,
+    "name": "Rohit Mehta",
+    "review": "I quit sugar the moment I was diagonsed with diabetes. I attempted to control through diet, medication , and lifestyle change. I started Enzuger and now use it every day in my tea, coffee, and lemon juice. It has made me feel incredibly energetic.",
+    "rating": 4.5
+  },
+  {
+    "id": 3,
+    "name": "Anita Gohil",
+    "review": "I used to feel fatigued and lethargic and my blood sugar level used to be about 220. I switchhed to Enzuger and within two months of regular use, my random sugar level is normal, digestion has improved and i am feeling fresh and energetic.",
+    "rating": 1.5
+  },
+  {
+    "id": 4,
+    "name": "Uma Chauhan",
+    "review": "I love to cook and I cannot compromise on taste. Enzuger, with its lovely, grainy texture and zero after-taste, has been the easieset switch to managing my diabetes. Its not jsut baout the reduction of the sugar level, I feel more energetic now.",
+    "rating": 1
+  }
+]

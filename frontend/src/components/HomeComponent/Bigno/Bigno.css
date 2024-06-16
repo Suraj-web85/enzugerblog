@@ -1,0 +1,42 @@
+.bnsec {
+  background-color: var(--bg-color);
+  flex-direction: column;
+  padding-bottom: 40px;
+  color: var(--p-color);
+}
+
+.reason-con {
+  margin-top: 20px;
+  gap: 20px;
+  align-items: flex-start !important;
+}
+.reason {
+  width: 100%;
+}
+.reason .mpara {
+  text-align: left !important;
+}
+.reason-images {
+  gap: 20px;
+  justify-content: flex-start !important;
+}
+.bigno-img {
+  width: 60px;
+}
+.reason .sh {
+  margin-bottom: 10px;
+}
+.reason-img {
+  margin-top: 20px;
+  flex-direction: column;
+}
+.reason-img .para {
+  text-align: center;
+}
+
+@media (max-width:1024px) {
+    .reason-con{
+        flex-direction: column;
+        gap: 50px;
+    }
+}
