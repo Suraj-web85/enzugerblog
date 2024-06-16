@@ -1,6 +1,4 @@
-
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 function AddBlog() {
     const [blog, setBlog] = useState({
@@ -10,9 +8,10 @@ function AddBlog() {
         date: '',
         title: '',
         content: '',
-        user: ''
+        user:''
     });
     const [error, setError] = useState(null); // State to hold error messages
+    const [successMessage, setSuccessMessage] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -36,8 +35,17 @@ function AddBlog() {
             })
             .then(data => {
                 console.log('Success:', data);
-                // Optionally redirect or show a success message
+                setSuccessMessage('Blog added successfully'); // Set success message for displaying
                 setError(null); // Clear any previous error
+                setBlog({
+                    category: '',
+                    img: '',
+                    lastTime: 0,
+                    date: '',
+                    title: '',
+                    content: '',
+                    user: ''
+                }); // Clear the form after successful submission
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -46,21 +54,22 @@ function AddBlog() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" name="category" onChange={handleChange} placeholder="Category" required />
-            <input type="text" name="img" onChange={handleChange} placeholder="Image URL" required />
-            <input type="number" name="lastTime" onChange={handleChange} placeholder="Last Time" required />
-            <input type="text" name="date" onChange={handleChange} placeholder="Date" required />
-            <input type="text" name="title" onChange={handleChange} placeholder="Title" required />
-            <textarea name="content" onChange={handleChange} placeholder="Content" required></textarea>
-            <input type="text" name="user" onChange={handleChange} placeholder="User" required />
-            <button type="submit">Add Blog</button>
-            {error && <p className="error">{error}</p>}
-            {/* <div className="sflex" style={{ justifyContent: "flex-end" }}>
-            </div> */}
-        </form>
+        <div>
+            <form onSubmit={handleSubmit}>
+                <input type="text" name="category" value={blog.category} onChange={handleChange} placeholder="Category" required />
+                <input type="text" name="img" value={blog.img} onChange={handleChange} placeholder="Image URL" required />
+                <input type="number" name="lastTime" value={blog.lastTime} onChange={handleChange} placeholder="Last Time" required />
+                <input type="text" name="date" value={blog.date} onChange={handleChange} placeholder="Date" required />
+                <input type="text" name="title" value={blog.title} onChange={handleChange} placeholder="Title" required />
+                <textarea name="content" value={blog.content} onChange={handleChange} placeholder="Content" required></textarea>
+                <input type="text" name="user" value={blog.user} onChange={handleChange} placeholder="User" required />
+                <button type="submit">Add Blog</button>
+                {successMessage && <p className="success">{successMessage}</p>}
+
+                {error && <p className="error">{error}</p>}
+            </form>
+        </div>
     );
 }
 
 export default AddBlog;
-
