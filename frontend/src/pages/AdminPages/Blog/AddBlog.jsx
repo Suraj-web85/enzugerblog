@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-function AddBlog() {
+function AddBlog({ onBlogAdded }) {
     const [blog, setBlog] = useState({
         category: '',
-        img: '', // Store file data here
+        img: null, // Store file data here
         lastTime: 0,
         date: '',
         title: '',
@@ -51,14 +51,14 @@ function AddBlog() {
             setError(null);
             setBlog({
                 category: '',
-                img: '',
+                img: null,
                 lastTime: 0,
                 date: '',
                 title: '',
                 content: '',
                 user: ''
             });
-            // onBlogAdded(data); // Call the callback to update the blog list
+            // onBlogAdded(data); 
         })
         .catch(error => {
             console.error('Error:', error);

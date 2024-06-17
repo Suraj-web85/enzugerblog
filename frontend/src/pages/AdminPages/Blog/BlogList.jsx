@@ -4,6 +4,7 @@ import "./AdminBlog.css";
 import { FaRegEdit } from "react-icons/fa";
 import { MdOutlineAddToPhotos, MdDeleteOutline } from "react-icons/md";
 import BlogTableRow from "./BlogTableRow"; // Assuming you have created this component
+import AddBlog from "./AddBlog";
 
 function BlogList() {
   const [blogs, setBlogs] = useState([]);
@@ -54,6 +55,11 @@ function BlogList() {
     setActionMenu({ show: false, x: 0, y: 0, blog: null });
   };
 
+  const handleBlogAdded = (newBlog) => {
+    // Add the new blog to the state
+    setBlogs((prevBlogs) => [...prevBlogs, newBlog]);
+  };
+
   return (
     <div className="blog-list-container">
       <div className="blog-list-header">
@@ -72,6 +78,7 @@ function BlogList() {
             <th>Last Time</th>
             <th>Date</th>
             <th>Actions</th>
+            <th>img</th>
           </tr>
         </thead>
         <tbody>
@@ -103,6 +110,7 @@ function BlogList() {
           </div>
         </div>
       )}
+      {/* <AddBlog onBlogAdded={handleBlogAdded} /> */}
     </div>
   );
 }

@@ -1,10 +1,9 @@
 import React from "react";
-import { FaRegEdit } from "react-icons/fa";
-import { MdOutlineAddToPhotos, MdDeleteOutline } from "react-icons/md";
+import './AdminBlog.css '
 
 function BlogTableRow({ blog, handleActionClick }) {
   return (
-    <tr className="sspara">
+    <tr>
       <td>{blog.content}</td>
       <td>{blog.title}</td>
       <td>{blog.category}</td>
@@ -13,10 +12,15 @@ function BlogTableRow({ blog, handleActionClick }) {
       <td>
         <button
           className="action-btn"
-          onClick={(event) => handleActionClick(event, blog)}
+          onClick={(e) => handleActionClick(e, blog)}
         >
           ⋮
         </button>
+      </td>
+      <td>
+        {blog.img && (
+          <img src={blog.img} alt="Blog Image" className="blog-img" />
+        )}
       </td>
     </tr>
   );
