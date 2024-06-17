@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '4eaee6f4ddsrysuraj@', // Replace with your MySQL password
+    password: '4eaee6f4ddsrysuraj@', 
     database: 'blog_db'
 });
 
@@ -107,7 +107,6 @@ app.put('/updateBlog/:id', upload.single('img'), (req, res) => {
     const { id } = req.params;
     let updatedBlog = req.body;
 
-    // If a new image is uploaded, update the img field
     if (req.file) {
         updatedBlog.img = '/public/images/' + req.file.filename;
     }
@@ -127,7 +126,7 @@ app.put('/updateBlog/:id', upload.single('img'), (req, res) => {
     });
 });
 
-// Other routes for updating, deleting, and retrieving blogs...
+
 
 app.listen('3001', () => {
     console.log('Server started on port 3001');

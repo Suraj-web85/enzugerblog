@@ -12,3 +12,28 @@
 .blg-lst-tble-whle{
   overflow-x: scroll;
 }
+.del-btn{
+
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px 8px;
+  font-weight: 500;
+  background-color: #d2f4ee;
+  color: #1b6e5f;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+.del-btn:hover{
+  background-color: #1b6e5f;
+  color:  #d2f4ee;
+  scale: 1.05;
+}
+
+
+.ellipsis-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px; 
+}
