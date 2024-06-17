@@ -4,7 +4,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import "./BlogOwl.css";
 
-import blogs from "../../assets/data/BlogPgTp.json";
+// import blogs from "../../assets/data/BlogPgTp.json";
 import BlogTitle from "./BlogTitle";
 
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
@@ -13,7 +13,16 @@ import ReactDOM from "react-dom";
 
 
 function BlogOwl() {
-  // const [currentIndex , setCurrentIndex] = useState(0)
+  const [blogs, setBlogs] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3001/getBlogs")
+      .then((response) => response.json())
+      .then((data) => setBlogs(data))
+      .catch((error) => console.error("Error fetching blogs:", error));
+  }, []);
+  
+  
+  
   useEffect(() => {
     const navContainer = document.querySelector(".owl-nav");
     const dotsContainer = document.querySelector(".owl-dots");
@@ -43,17 +52,7 @@ function BlogOwl() {
       renderIcon(prevIcon, IoIosArrowBack);
       renderIcon(nextIcon, IoIosArrowForward);
     }
-  }, []);
-  // const handleTranslate = (event) =>{
-  //   setCurrentIndex(event.item.index)
-  // }
-  // useEffect(()=>{
-  //   if(currentIndex === 0){
-  //     document.querySelector(".owl-prev").style.display = "none"
-  //   }else{
-  //     document.querySelector(".owl-prev").style.display = "block"
-  //   }
-  // },[currentIndex])
+  }, [blogs]);
 
   return (
     <>
@@ -91,11 +90,11 @@ function BlogOwl() {
           <div className="blg-owl-sb-dv" key={blog.id}>
             <div className="cn-cnrf">
               <div className="gbsr-ctr">
-                <h3>{blog.heading}</h3>
+                <h3>{blog.title}</h3>
                 <p>{blog.content}</p>
               </div>
               <div className="mg-cnr">
-                <img src={`/images/${blog.img}`} alt={blog.title} />
+              <img src={`http://localhost:3001${blog.img}`} alt={blog.title} />
               </div>
             </div>
           </div>
