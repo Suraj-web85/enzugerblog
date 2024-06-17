@@ -69,7 +69,8 @@ function BlogList() {
         </Link>
       </div>
       {error && <p className="error">{error.message}</p>}
-      <table className="e-a-pr-tb sspara">
+      <div className="blg-lst-tble-whle">
+      <table className="e-a-pr-tb sspara ">
         <thead>
           <tr>
             <th>Content</th>
@@ -91,6 +92,8 @@ function BlogList() {
           ))}
         </tbody>
       </table>
+      </div>
+      
       {actionMenu.show && (
         <div className="act-btn-overlay" onClick={handleCloseMenu}>
           <div

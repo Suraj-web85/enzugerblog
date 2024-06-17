@@ -3,7 +3,12 @@
   justify-content: space-between;
 }
 .blog-img {
-  max-width: 100px; /* Adjust as per your design */
+  min-width: 100px; /* Adjust as per your design */
   height: auto; /* Maintain aspect ratio */
 }
 
+
+
+.blg-lst-tble-whle{
+  overflow-x: scroll;
+}
