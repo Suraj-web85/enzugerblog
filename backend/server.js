@@ -18,7 +18,7 @@ const db = mysql.createConnection({
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, '../frontend/public/images'); // Adjust path as per your frontend structure
+        cb(null, 'public/images'); // Adjust path to backend/public/images
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + path.extname(file.originalname));
@@ -35,7 +35,10 @@ db.connect(err => {
 });
 
 // Serve static files from the 'public' directory
-app.use(express.static('public'));
+// app.use('/public', express.static(path.join(__dirname, 'public')));
+// Serve static files from the 'public' directory
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
+
 
 // Create Blog Table if not exists
 app.get('/createBlogTable', (req, res) => {
@@ -111,7 +114,7 @@ app.put('/updateBlog/:id', upload.single('img'), (req, res) => {
 
     // If a new image is uploaded, update the img field
     if (req.file) {
-        updatedBlog.img = '/images/' + req.file.filename;
+        updatedBlog.img = '/public/images/' + req.file.filename;
     }
 
     let sql = 'UPDATE blogs SET ? WHERE id = ?';

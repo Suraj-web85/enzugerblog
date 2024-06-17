@@ -150,7 +150,7 @@ function BlogFrst() {
     <div className={`brd-rd ${isSmallScreen ? "grid" : "flex"}`}>
       {blogs.map((item, index) => {
         const bgImg = {
-          background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${item.img}') no-repeat center / cover`,
+          background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://localhost:3001${item.img}') no-repeat center / cover`,
         };
 
         const flexStyle = isSmallScreen
