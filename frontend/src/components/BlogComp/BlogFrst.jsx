@@ -131,12 +131,19 @@ function BlogFrst() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+ 
   useEffect(() => {
     fetch("http://localhost:3001/getBlogs")
       .then((response) => response.json())
       .then((data) => setBlogs(data))
       .catch((error) => console.error("Error:", error));
   }, []);
+  // useEffect(() => {
+  //   fetch("/getBlogs") // Ensure this matches your backend route
+  //     .then((response) => response.json())
+  //     .then((data) => setBlogs(data))
+  //     .catch((error) => console.error("Error:", error));
+  // }, []);
 
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);

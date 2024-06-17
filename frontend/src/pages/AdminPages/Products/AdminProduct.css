@@ -101,21 +101,21 @@
   cursor: pointer;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
-.act-dialog > button:last-child {
+.act-dialog  button:hover{
   background-color: tomato;
   color: white;
 }
 .act-dialog > button > svg {
   font-size: 1.4em;
 }
-.act-dialog button:hover {
+/* .act-dialog button:hover {
   background-color: #f1f5f9;
   color: #475569;
-}
-.act-dialog button:last-child:hover {
+} */
+/* .act-dialog button:last-child:hover {
   background-color: red;
   color: white;
-}
+} */
 
 /* Add Product CSS */
 

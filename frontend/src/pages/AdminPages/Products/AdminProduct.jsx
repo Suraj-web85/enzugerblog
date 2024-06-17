@@ -4,7 +4,7 @@ import "./AdminProduct.css";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import products from "../../../assets/data/products";
-
+  
 import { FaRegEdit } from "react-icons/fa";
 import {
   MdOutlineAddBox,
@@ -66,13 +66,7 @@ const AdminProducts = () => {
             style={{ top: actionMenu.y, left: actionMenu.x - 160 }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* <button
-              onClick={() =>
-                alert("Add action for " + selectedProduct.productStatus)
-              }
-            >
-              <MdOutlineAddBox /> Add
-            </button> */}
+          
             <button onClick={() => {}}>
               <FaRegEdit /> Edit
             </button>

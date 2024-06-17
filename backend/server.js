@@ -34,9 +34,6 @@ db.connect(err => {
     console.log('MySQL Connected...');
 });
 
-// Serve static files from the 'public' directory
-// app.use('/public', express.static(path.join(__dirname, 'public')));
-// Serve static files from the 'public' directory
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
 
@@ -58,11 +55,9 @@ app.get('/createBlogTable', (req, res) => {
     });
 });
 
-// Add Blog
 app.post('/addBlog', upload.single('img'), (req, res) => {
     let blog = req.body;
-    blog.img = '/images/' + req.file.filename; // Save the path to the image in the database
-
+    blog.img = '/images/' + req.file.filename;
     let sql = 'INSERT INTO blogs SET ?';
     db.query(sql, blog, (err, result) => {
         if (err) {
