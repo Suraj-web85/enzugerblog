@@ -36,7 +36,6 @@ db.connect(err => {
 
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
-
 // Create Blog Table if not exists
 app.get('/createBlogTable', (req, res) => {
     let sql = `CREATE TABLE IF NOT EXISTS blogs (
@@ -126,7 +125,22 @@ app.put('/updateBlog/:id', upload.single('img'), (req, res) => {
     });
 });
 
-
+app.get('/getBlog/:id', (req, res) => {
+    const { id } = req.params;
+    let sql = 'SELECT * FROM blogs WHERE id = ?';
+    db.query(sql, [id], (err, result) => {
+        if (err) {
+            console.error('Error fetching blog:', err);
+            res.status(500).json({ error: 'Failed to fetch blog' });
+            return;
+        }
+        if (result.length === 0) {
+            res.status(404).json({ message: 'Blog not found' });
+            return;
+        }
+        res.json(result[0]);
+    });
+});
 
 app.listen('3001', () => {
     console.log('Server started on port 3001');

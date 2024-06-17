@@ -1,5 +1,5 @@
 .mn-cn-blog-sngle-pg .bnner-too-img {
-  width: 85vw;
+  width: 100vw;
   /* height: 700px; */
   height: clamp(14.0625rem, 1.3393rem + 56.5476vw, 30.75rem);
 }
