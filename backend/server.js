@@ -12,18 +12,19 @@ app.use(bodyParser.json());
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '4eaee6f4ddsrysuraj@',
+    password: '4eaee6f4ddsrysuraj@', // Replace with your MySQL password
     database: 'blog_db'
 });
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './public/images'); // Destination directory for storing images
+        cb(null, '../frontend/public/images'); // Adjust path as per your frontend structure
     },
     filename: function (req, file, cb) {
-        // Generate a unique filename for the uploaded image
         cb(null, Date.now() + path.extname(file.originalname));
     }
 });
+
 const upload = multer({ storage: storage });
 
 db.connect(err => {
@@ -33,16 +34,10 @@ db.connect(err => {
     console.log('MySQL Connected...');
 });
 
-// Create Database
-app.get('/createDatabase', (req, res) => {
-    let sql = 'CREATE DATABASE IF NOT EXISTS blog_db';
-    db.query(sql, (err, result) => {
-        if (err) throw err;
-        res.send('Database created...');
-    });
-});
+// Serve static files from the 'public' directory
+app.use(express.static('public'));
 
-// Create Blog Table
+// Create Blog Table if not exists
 app.get('/createBlogTable', (req, res) => {
     let sql = `CREATE TABLE IF NOT EXISTS blogs (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -61,59 +56,80 @@ app.get('/createBlogTable', (req, res) => {
 });
 
 // Add Blog
-app.post('/addBlog', (req, res) => {
+app.post('/addBlog', upload.single('img'), (req, res) => {
     let blog = req.body;
+    blog.img = '/images/' + req.file.filename; // Save the path to the image in the database
+
     let sql = 'INSERT INTO blogs SET ?';
     db.query(sql, blog, (err, result) => {
         if (err) {
             console.error('Error adding blog:', err);
-            res.status(500).json({ error: 'Failed to add blog' }); // Send JSON error response
+            res.status(500).json({ error: 'Failed to add blog' });
             return;
         }
+        blog.id = result.insertId; // Get the newly inserted blog's ID
         console.log('Blog added successfully');
-        res.json({ message: 'Blog added successfully' }); // Send JSON success response
+        res.json(blog); // Return the newly added blog
     });
 });
 
-// Get Blogs
+// Get All Blogs
 app.get('/getBlogs', (req, res) => {
     let sql = 'SELECT * FROM blogs';
     db.query(sql, (err, results) => {
-        if (err) throw err;
-        res.send(results);
-    });
-});
-
-// Update Blog
-app.put('/updateBlog/:id', (req, res) => {
-    let newTitle = req.body.title;
-    let sql = `UPDATE blogs SET title = '${newTitle}' WHERE id = ${req.params.id}`;
-    db.query(sql, (err, result) => {
-        if (err) throw err;
-        res.send('Blog updated...');
-    });
-});
-
-// Delete Blog
-// app.delete('/deleteBlog/:id', (req, res) => {
-//     let sql = `DELETE FROM blogs WHERE id = ${req.params.id}`;
-//     db.query(sql, (err, result) => {
-//         if (err) throw err;
-//         res.send('Blog deleted...');
-//     });
-// });
-// Delete Blog
-app.delete('/deleteBlog/:id', (req, res) => {
-    let sql = `DELETE FROM blogs WHERE id = ${req.params.id}`;
-    db.query(sql, (err, result) => {
         if (err) {
-            res.status(500).json({ success: false, message: 'Failed to delete blog' });
-        } else {
-            res.json({ success: true, message: 'Blog deleted successfully' });
+            console.error('Error fetching blogs:', err);
+            res.status(500).json({ error: 'Failed to fetch blogs' });
+            return;
         }
+        res.json(results);
     });
 });
 
+// Delete Blog by ID
+app.delete('/deleteBlog/:id', (req, res) => {
+    const { id } = req.params;
+    let sql = 'DELETE FROM blogs WHERE id = ?';
+    db.query(sql, [id], (err, result) => {
+        if (err) {
+            console.error('Error deleting blog:', err);
+            res.status(500).json({ error: 'Failed to delete blog' });
+            return;
+        }
+        if (result.affectedRows === 0) {
+            res.status(404).json({ error: 'Blog not found' });
+            return;
+        }
+        res.json({ success: true, message: 'Blog deleted successfully' });
+    });
+});
+
+// Update Blog by ID
+app.put('/updateBlog/:id', upload.single('img'), (req, res) => {
+    const { id } = req.params;
+    let updatedBlog = req.body;
+
+    // If a new image is uploaded, update the img field
+    if (req.file) {
+        updatedBlog.img = '/images/' + req.file.filename;
+    }
+
+    let sql = 'UPDATE blogs SET ? WHERE id = ?';
+    db.query(sql, [updatedBlog, id], (err, result) => {
+        if (err) {
+            console.error('Error updating blog:', err);
+            res.status(500).json({ error: 'Failed to update blog' });
+            return;
+        }
+        if (result.affectedRows === 0) {
+            res.status(404).json({ error: 'Blog not found' });
+            return;
+        }
+        res.json({ success: true, message: 'Blog updated successfully' });
+    });
+});
+
+// Other routes for updating, deleting, and retrieving blogs...
 
 app.listen('3001', () => {
     console.log('Server started on port 3001');

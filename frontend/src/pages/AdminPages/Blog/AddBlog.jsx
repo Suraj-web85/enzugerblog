@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
-function AddBlog() {
+function AddBlog({ onBlogAdded }) {
     const [blog, setBlog] = useState({
         category: '',
-        img: '',
+        img: '', // Store file data here
         lastTime: 0,
         date: '',
         title: '',
         content: '',
-        user:''
+        user: ''
     });
     const [error, setError] = useState(null); // State to hold error messages
     const [successMessage, setSuccessMessage] = useState('');
@@ -18,46 +18,59 @@ function AddBlog() {
         setBlog(prevBlog => ({ ...prevBlog, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        fetch('http://localhost:3001/addBlog', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(blog)
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json(); // Parse the JSON response
-            })
-            .then(data => {
-                console.log('Success:', data);
-                setSuccessMessage('Blog added successfully'); // Set success message for displaying
-                setError(null); // Clear any previous error
-                setBlog({
-                    category: '',
-                    img: '',
-                    lastTime: 0,
-                    date: '',
-                    title: '',
-                    content: '',
-                    user: ''
-                }); // Clear the form after successful submission
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                setError('Failed to add blog'); // Set error state for displaying error messages
-            });
+    // Function to handle file input change
+    const handleFileChange = (e) => {
+        setBlog({ ...blog, img: e.target.files[0] }); // Store the selected file
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData();
+        formData.append('category', blog.category);
+        formData.append('lastTime', blog.lastTime);
+        formData.append('date', blog.date);
+        formData.append('title', blog.title);
+        formData.append('content', blog.content);
+        formData.append('user', blog.user);
+        formData.append('img', blog.img); // Append the file data to formData
+        
+        fetch('http://localhost:3001/addBlog', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Success:', data);
+            setSuccessMessage('Blog added successfully');
+            setError(null);
+            setBlog({
+                category: '',
+                img: '',
+                lastTime: 0,
+                date: '',
+                title: '',
+                content: '',
+                user: ''
+            });
+            onBlogAdded(data); // Call the callback to update the blog list
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            setError('Failed to add blog');
+        });
+    };
+    
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="category" value={blog.category} onChange={handleChange} placeholder="Category" required />
-                <input type="text" name="img" value={blog.img} onChange={handleChange} placeholder="Image URL" required />
+                <input type="file" name="img" onChange={handleFileChange} required /> {/* File input for image */}
                 <input type="number" name="lastTime" value={blog.lastTime} onChange={handleChange} placeholder="Last Time" required />
                 <input type="text" name="date" value={blog.date} onChange={handleChange} placeholder="Date" required />
                 <input type="text" name="title" value={blog.title} onChange={handleChange} placeholder="Title" required />
@@ -65,7 +78,6 @@ function AddBlog() {
                 <input type="text" name="user" value={blog.user} onChange={handleChange} placeholder="User" required />
                 <button type="submit">Add Blog</button>
                 {successMessage && <p className="success">{successMessage}</p>}
-
                 {error && <p className="error">{error}</p>}
             </form>
         </div>
